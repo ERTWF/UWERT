@@ -55,7 +55,7 @@ async def play(_, message: Message):
 
     await message.delete()
 
-    fallen = await message.reply("» ᴘʀᴏᴄᴇssɪɴɢ​... ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ʙᴀʙʏ🔎")
+    fallen = await message.reply("» ابشر يتم البحث 🔎")
 
     chumtiya = message.from_user.mention
 
@@ -155,7 +155,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await fallen.edit(
-                "» ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ ᴛᴏ sᴇᴀʀᴄʜ ʙᴀʙʏ🤦🏻‍♂️"
+                "» ياغالي اكتب شي للبحث او اعطيني اسم الاغنيه صالح 🤦🏻‍♂️"
             )
         await fallen.edit("🔎")
         query = message.text.split(None, 1)[1]
@@ -182,7 +182,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await fallen.edit(
-                "» ɴᴏᴛ ғᴏᴜɴᴅ, ᴛʀʏ sᴇᴀʀᴄʜɪɴɢ ᴡɪᴛʜ ᴛʜᴇ sᴏɴɢ ɴᴀᴍᴇ ʙᴀʙʏ"
+                "» عفوآ عيني عندك مشكلة بل اغنيه اكتبها صح يا ابوراس مربع 🙂"
             )
             print(str(e))
             return
@@ -200,12 +200,12 @@ async def play(_, message: Message):
     if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file_path)
         await message.reply_text(
-            text=f"**» ᴛʀᴀᴄᴋ ǫᴜᴇᴜᴇᴅ ᴀᴛ {position} ʙᴀʙʏ**\n📌 **ᴛɪᴛʟᴇ​ :**[{title[:65]}]({url})\n\n🕕** ᴅᴜʀᴀᴛɪᴏɴ :** `{duration}` **ᴍɪɴᴜᴛᴇs**\n💕** ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ​ : **{chumtiya}",
+            text=f"**» ابشر تم التشغيل {position} **\n📌 **الاغنيه :**[{title[:65]}]({url})\n\n🕕** عدد :** `{duration}` **الدقائق**\n💕** طلب الحلو​ : **{chumtiya}",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• sᴜᴩᴩᴏʀᴛ •", url=f"https://t.me/{SUPPORT_GROUP}"),
-                    InlineKeyboardButton("» ᴄʟᴏsᴇ «", callback_data="close_play")
+                    InlineKeyboardButton("• كروب البوت •", url=f"https://t.me/{SUPPORT_GROUP}"),
+                    InlineKeyboardButton("» اخفاء القائمة «", callback_data="close_play")
                 ],
             ]
         ),
@@ -223,12 +223,12 @@ async def play(_, message: Message):
             )
 
         await message.reply_text(
-            text=f"**ㅤㅤㅤ» ɴᴏᴡ ᴘʟᴀʏɪɴɢ «**\n📌 **ᴛɪᴛʟᴇ​:** [{title[:65]}]({url})\n🕕 **ᴅᴜʀᴀᴛɪᴏɴ:** `{duration}` ᴍɪɴᴜᴛᴇs\n💕 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ​:** {chumtiya}\n💔 **ᴘʟᴀʏɪɴɢ ɪɴ​:** `{message.chat.title}`\n🎥 **sᴛʀᴇᴀᴍ ᴛʏᴘᴇ:** ʏᴏᴜᴛᴜʙᴇ ᴍᴜsɪᴄ\n",
+            text=f"**» ابشر تم التشغيل «**\n📌 **الاغنيه:** [{title[:65]}]({url})\n🕕 **عدد:** `{duration}` الدقائق\n💕 **طلب الحلو​:** {chumtiya}\n💔 **الدردشة​:** `{message.chat.title}`\n🎥 **نوع التشغيل:** موسيقى\n",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• sᴜᴩᴩᴏʀᴛ •", url=f"https://t.me/{SUPPORT_GROUP}"),
-                    InlineKeyboardButton("» ᴄʟᴏsᴇ «", callback_data="close_play")
+                    InlineKeyboardButton("• كروب البوت •", url=f"https://t.me/{SUPPORT_GROUP}"),
+                    InlineKeyboardButton("» اخفاء القائمة «", callback_data="close_play")
                 ],
             ]
         ),

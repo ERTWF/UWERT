@@ -14,7 +14,7 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
 
-@Client.on_message(filters.command(["song", "music", " vsong", "video"]) & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command(["song", "حمل", "فيديو", "video"]) & ~filters.private & ~filters.channel)
 def song(client, message):
 
     message.delete()
@@ -45,17 +45,17 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "» ɴᴏᴛ ғᴏᴜɴᴅ, ᴛʀʏ sᴇᴀʀᴄʜɪɴɢ ᴡɪᴛʜ ᴛʜᴇ sᴏɴɢ ɴᴀᴍᴇ."
+            "» عيوني لضلك غشيم اكتب شي عشان ابحث."
         )
         print(str(e))
         return
-    m.edit(f"» ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ sᴏɴɢ ꜰʀᴏᴍ {bn} sᴇʀᴠᴇʀ ʙᴀʙʏ​.")
+    m.edit(f"» ابشر الحين انت فتح مخك قاعد احملك {bn} ​.")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**• ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ​ » [{bn}](t.me/{bu}) 💕\n• ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ​ » {chutiya}\n• sᴇᴀʀᴄʜᴇᴅ ғᴏʀ » {query}**"
+        rep = f"**• الرافع​ » [{bn}](t.me/{bu}) 💕\n• مطلوبة من » {chutiya}\n• الاسم المطلوب » {query}**"
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)

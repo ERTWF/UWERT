@@ -42,7 +42,7 @@ async def stop(_, message: Message):
 
     await message.delete()
     await callsmusic.pytgcalls.leave_group_call(message.chat.id)
-    await message.reply_text("» sᴛʀᴇᴀᴍ ᴇɴᴅᴇᴅ ʙʏ {} ʙᴀʙʏ🥺".format(
+    await message.reply_text("» ابشر وقفت كل شي شغال {} 🥺".format(
       message.from_user.mention ), )
 
 @Client.on_message(command(["skip", "تخطي"]) & other_filters)
@@ -70,4 +70,4 @@ async def skip(_, message: Message):
                     ),
                 ),
             )
-    await message.reply_text("» ᴛʀᴀᴄᴋ sᴋɪᴘᴘᴇᴅ ʙʏ {} ʙᴀʙʏ🤔".format( message.from_user.mention ), )
+    await message.reply_text("» ابشر عيني تخطيت المسار {} 🤔".format( message.from_user.mention ), )
