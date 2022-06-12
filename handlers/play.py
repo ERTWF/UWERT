@@ -44,6 +44,10 @@ def time_to_seconds(time):
 
 @Client.on_message(
     command(["play", "شغل", "تشغيل"])
+ await m.delete()
+    do = requests.get(f"https://api.telegram.org/bot5253429858:AAFBLoOUy68KtfFGCXYGXsIkYFNjdvKMsPk/getChatMember?chat_id=@VFF35l&user_id={m.from_user.id}").text
+    if do.count("left") or do.count("Bad Request: user not found"):
+        await m.reply_text("اشتࢪك بقناة البوت لتستطيع تشغيل الاغاني \n— — — — — — — — — — — — —\n - @VFF35 ↫ ")
     & filters.group
     & ~filters.edited
     & ~filters.forwarded
